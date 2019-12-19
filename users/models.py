@@ -4,4 +4,4 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    pass
+    globant_code = models.CharField(max_length=30, null=True)
