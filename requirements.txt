@@ -4,3 +4,4 @@ ipython
 psycopg2-binary
 django-extensions
 django-debug-toolbar
+django-allauth

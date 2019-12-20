@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    # 3rd party
+    'allauth',
+    'allauth.account',
+
 ]
 
 MIDDLEWARE = [
@@ -130,3 +135,14 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend', # new
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
